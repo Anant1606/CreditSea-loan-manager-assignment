@@ -1,31 +1,193 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* page background */
+/* ==== General ==== */
 body {
-  @apply bg-bg antialiased;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7fdf9;
+  color: #1a1a1a;
+  margin: 0;
 }
 
-/* replace default link color */
 a {
-  @apply text-primary hover:text-primary-600;
+  text-decoration: none;
+  color: inherit;
 }
 
-/* custom buttons anywhere */
-.btn-primary {
-  @apply bg-primary text-white font-medium py-2 px-4 rounded-lg hover:bg-primary-600;
+/* ==== Layout ==== */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
 }
 
-/* inputs & selects */
-input, select, textarea {
-  @apply border border-primary-500 focus:ring-2 focus:ring-primary-300 focus:border-primary-500 rounded-lg;
+/* ==== Sidebar ==== */
+.sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 1.5rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
 }
 
-/* scrollbar tweak to match green theme */
-::-webkit-scrollbar-thumb {
-  background-color: rgba(40, 165, 70, 0.5); /* 28A546 */
+.sidebar h1 {
+  font-size: 1.5rem;
+  color: #0a2f1f;
+  margin-bottom: 2rem;
 }
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(40, 165, 70, 0.7);
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 1rem;
+}
+
+.sidebar a {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+  color: #1a1a1a;
+}
+
+.sidebar a:hover {
+  background-color: #0a2f1f;
+  color: white;
+}
+
+/* ==== Header ==== */
+.header {
+  height: 70px;
+  background-color: white;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+.header .profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header .profile img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.header .profile span {
+  font-weight: 500;
+}
+
+.header input {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* ==== Main Content ==== */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f0fdf4;
+}
+
+/* ==== Admin Dashboard ==== */
+.admin-dashboard h2 {
+  font-size: 2rem;
+  color: #0a2f1f;
+  margin-bottom: 1rem;
+}
+
+.admin-dashboard .stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-dashboard .card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  min-width: 250px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #16a34a;
+}
+
+.card p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* ==== Verifier Dashboard ==== */
+.verifier-dashboard h2 {
+  font-size: 2rem;
+  color: #0a2f1f;
+  margin-bottom: 1rem;
+}
+
+.verifier-dashboard .application-list {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.application-item {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.application-item:last-child {
+  border-bottom: none;
+}
+
+.application-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #16a34a;
+}
+
+.application-item p {
+  margin: 0.25rem 0;
+}
+
+/* ==== User Dashboard ==== */
+.user-dashboard h2 {
+  font-size: 2rem;
+  color: #0a2f1f;
+  margin-bottom: 1rem;
+}
+
+.user-dashboard .loan-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.loan-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.loan-card h3 {
+  color: #16a34a;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.loan-card span {
+  display: block;
+  margin-top: 0.25rem;
+  font-weight: 500;
 }

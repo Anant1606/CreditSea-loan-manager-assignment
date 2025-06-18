@@ -1,0 +1,58 @@
+/* RecentLoansTable.css */
+.recent-loans-container {
+  margin-top: 24px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+  padding: 16px;
+}
+
+.recent-loans-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.recent-loans-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recent-loans-table thead {
+  background-color: #f9fafb;
+}
+
+.recent-loans-table th,
+.recent-loans-table td {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.recent-loans-table th {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #777;
+}
+
+.recent-loans-table tr:hover {
+  background-color: #f3f4f6;
+}
+
+.btn-primary {
+  padding: 6px 12px;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}

@@ -1,7 +1,7 @@
 // src/pages/UserDashboard.tsx
 import { useEffect, useState } from 'react';
 import StatCard from '../components/StatCard';
-import RecentLoansTable from '../components/RecentLoansTable';
+import RecentLoansTable from '../components/RecentLoanTable';
 import { api } from '../api';
 
 export default function UserDashboard() {

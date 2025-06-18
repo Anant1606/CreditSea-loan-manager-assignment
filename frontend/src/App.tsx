@@ -1,11 +1,14 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+// src/App.tsx
+import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import RoleSelect from './pages/RoleSelect';
-import Form from './pages/Form';
-import AdminDashboard from './pages/AdminDashboard';
-import VerifierDashboard from './pages/VerifierDashboard';
-import UserDashboard from './pages/UserDashboard';
+import Header  from './components/Header';
+import Form    from './pages/Form';
+import AdminDashboard     from './pages/AdminDashboard';
+import VerifierDashboard  from './pages/VerifierDashboard';
+import UserDashboard      from './pages/UserDashboard';
+import RoleSelect         from './pages/RoleSelect';
+import './index.css';
+
 
 export default function App() {
   return (
@@ -17,10 +20,9 @@ export default function App() {
           <Routes>
             <Route path="/" element={<RoleSelect />} />
             <Route path="/form" element={<Form />} />
-            <Route path="/dashboard/admin" element={<AdminDashboard />} />
+            <Route path="/dashboard/admin"    element={<AdminDashboard />} />
             <Route path="/dashboard/verifier" element={<VerifierDashboard />} />
-            <Route path="/dashboard/user" element={<UserDashboard />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="/dashboard/user"     element={<UserDashboard />} />
           </Routes>
         </main>
       </div>

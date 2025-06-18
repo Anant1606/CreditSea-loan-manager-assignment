@@ -1,0 +1,42 @@
+/* RoleSelect.css */
+.role-select-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.role-select-container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.role-select-container select,
+.role-select-container input {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 250px;
+  font-size: 16px;
+}
+
+.role-select-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb; /* Tailwind blue-600 */
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.role-select-container button:hover {
+  background-color: #1d4ed8; /* Tailwind blue-700 */
+}

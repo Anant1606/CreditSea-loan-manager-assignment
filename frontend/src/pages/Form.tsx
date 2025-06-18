@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './Form.css'; // 👈 Add this import
 
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -27,16 +28,10 @@ export default function Form() {
   };
 
   return (
-    <div className="flex justify-center items-center h-full">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-xl shadow-md w-full max-w-md space-y-6"
-      >
-        <h2 className="text-2xl font-semibold text-textPrimary text-center">
-          Loan Application
-        </h2>
+    <div className="form-container">
+      <form onSubmit={handleSubmit} className="form-box">
+        <h2>Loan Application</h2>
 
-        {/* Inputs */}
         <input
           name="name"
           type="text"
@@ -45,6 +40,7 @@ export default function Form() {
           onChange={handleChange}
           required
         />
+
         <input
           name="email"
           type="email"
@@ -53,6 +49,7 @@ export default function Form() {
           onChange={handleChange}
           required
         />
+
         <input
           name="loanAmount"
           type="number"
@@ -61,6 +58,7 @@ export default function Form() {
           onChange={handleChange}
           required
         />
+
         <select
           name="purpose"
           value={formData.purpose}
@@ -74,10 +72,7 @@ export default function Form() {
           <option>Personal</option>
         </select>
 
-        {/* Submit Button */}
-        <button type="submit" className="w-full btn-primary">
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
