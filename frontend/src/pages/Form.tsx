@@ -24,7 +24,7 @@ export default function Form() {
       ...formData,
       loanAmount: parseFloat(formData.loanAmount)
     });
-    navigate('/dashboard');
+    navigate('/dashboard/user');
   };
 
   return (

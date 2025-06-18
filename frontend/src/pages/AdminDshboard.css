@@ -1,0 +1,44 @@
+/* AdminDashboard.css */
+
+.admin-dashboard {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.admin-dashboard h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+}
+
+.stat-card-label {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.stat-card-value {
+  font-size: 24px;
+  color: #0077cc;
+}
+
+.recent-loans {
+  margin-top: 20px;
+}

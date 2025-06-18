@@ -1,27 +1,62 @@
-// src/pages/UserDashboard.tsx
 import { useEffect, useState } from 'react';
 import StatCard from '../components/StatCard';
 import RecentLoansTable from '../components/RecentLoanTable';
 import { api } from '../api';
+import './UserDsh.css';
 
 export default function UserDashboard() {
+  const storedUser = localStorage.getItem('user');
+  const initialEmail = storedUser ? JSON.parse(storedUser).email : '';
+
+  const [email, setEmail] = useState(initialEmail);
+  const [inputEmail, setInputEmail] = useState('');
   const [stats, setStats] = useState<any>(null);
-  const email = localStorage.getItem('email')!;
-  
+
   useEffect(() => {
-    api.get('/stats/user', { params: { email } }).then(r => setStats(r.data));
+    if (email) {
+      api.get('/stats/user', { params: { email } })
+        .then(res => setStats(res.data))
+        .catch(err => {
+          console.error('Failed to fetch stats:', err);
+        });
+    }
   }, [email]);
+
+  const handleEmailSubmit = () => {
+    if (!inputEmail) return;
+    localStorage.setItem('user', JSON.stringify({ email: inputEmail }));
+    setEmail(inputEmail);
+  };
+
+  if (!email) {
+    return (
+      <div className="user-dashboard email-input-screen">
+        <h2>Please enter your email to view dashboard</h2>
+        <input
+          type="email"
+          value={inputEmail}
+          onChange={e => setInputEmail(e.target.value)}
+          placeholder="Enter your email"
+          className="email-input"
+        />
+        <button onClick={handleEmailSubmit} className="submit-button">Submit</button>
+      </div>
+    );
+  }
+
   if (!stats) return <p>Loading…</p>;
 
   return (
-    <>
-      <h1 className="text-3xl font-bold mb-6">Your Dashboard</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="user-dashboard">
+      <h1>Your Dashboard</h1>
+      <div className="stats-grid">
         <StatCard label="Total Borrowed"  value={`₹ ${stats.totalBorrowed}`} />
         <StatCard label="Total Disbursed" value={`₹ ${stats.totalDisbursed}`} />
         <StatCard label="Total Received"  value={`₹ ${stats.totalReceived}`} />
       </div>
-      <RecentLoansTable loans={stats.recentLoans} />
-    </>
+      <div className="recent-loans">
+        <RecentLoansTable loans={stats.recentLoans} />
+      </div>
+    </div>
   );
 }

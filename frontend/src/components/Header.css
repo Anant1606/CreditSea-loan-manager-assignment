@@ -1,12 +1,17 @@
 /* Header.css */
 .header {
+  height: 70px;
+  width: 100%;
   background: linear-gradient(to right, #1d4ed8, #10b981);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 0 24px;
   color: white;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
 .header input {
@@ -16,15 +21,17 @@
   padding: 8px 16px;
   border-radius: 8px;
   outline: none;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+  width: 220px;
 }
 
 .header input::placeholder {
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .header input:focus {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .header .right-section {
@@ -34,13 +41,15 @@
 }
 
 .header .avatar {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 9999px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
 }
 
 .header .username {
   font-weight: 500;
+  font-size: 16px;
 }

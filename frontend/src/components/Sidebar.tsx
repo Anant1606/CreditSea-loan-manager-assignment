@@ -3,7 +3,9 @@ import './Sidebar.css';
 
 export default function Sidebar() {
   const links = [
-    { label: 'Dashboard', to: '/dashboard' },
+    { label: 'Dashboard User', to: '/dashboard/user' },
+    { label: 'Dashboard Verifier', to: '/dashboard/Verifier' },
+    { label: 'Dashboard admin', to: '/dashboard/admin' },
     { label: 'Form', to: '/form' }
   ];
 
