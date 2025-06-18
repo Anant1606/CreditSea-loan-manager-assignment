@@ -14,7 +14,7 @@ export default function Header() {
           alt="User"
           className="avatar"
         />
-        <span className="username">Anant Sharma</span>
+        <span className="username">Completed by Anant Sharma</span>
       </div>
     </header>
   );
