@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './Form.css'; // 👈 Add this import
+import { api } from '../api'; // ✅ API instance with baseURL
+import './Form.css';
 
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -20,11 +20,16 @@ export default function Form() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await axios.post('https://creditsea-loan-manager-assignment.onrender.com/api/applications', {
-      ...formData,
-      loanAmount: parseFloat(formData.loanAmount)
-    });
-    navigate('/dashboard/user');
+    try {
+      await api.post('/', {
+        ...formData,
+        loanAmount: parseFloat(formData.loanAmount)
+      });
+      navigate('/dashboard/user');
+    } catch (error: any) {
+      console.error('Submission error:', error.response?.data || error.message);
+      alert('Failed to submit application. Please try again.');
+    }
   };
 
   return (
