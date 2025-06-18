@@ -1,4 +1,11 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend server for the application",
+  "scripts": {
+  "dev": "ts-node-dev --respawn src/index.ts"
+  },
+
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
