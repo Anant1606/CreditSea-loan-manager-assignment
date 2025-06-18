@@ -20,7 +20,7 @@ export default function Form() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/applications', {
+    await axios.post('https://creditsea-loan-manager-assignment.onrender.com/api/applications', {
       ...formData,
       loanAmount: parseFloat(formData.loanAmount)
     });
